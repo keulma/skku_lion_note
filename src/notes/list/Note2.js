@@ -112,7 +112,8 @@ export default function ApiPractice(){
 }
 
 //정답
-/*import React, { useState } from "react";
+/*
+import React, { useState } from "react";
 import styles from "../css/ApiPractice.module.css"; // CSS 모듈 불러오기
 
 function ApiPractice() {
