@@ -1,6 +1,8 @@
 import Note1 from "./list/Note1";
 import Note2 from "./list/Note2";
 import Note3 from "./list/Note3";
+import Note4 from "./list/Firebase_note";
+
 export const notelists = {
   1: {
     title: "Lecture Note 1",
@@ -19,5 +21,11 @@ export const notelists = {
     description: "종합 예제",
     page: <Note3 />,
     date: "2025-05-08",
+  },
+  4: {
+    title: "Firebase test",
+    description: "Firebase",
+    page: <Note4/>,
+    date: "2025-05-15",
   },
 };
