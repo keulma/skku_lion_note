@@ -2,14 +2,17 @@ import { useState } from "react";
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc, updateDoc } from "firebase/firestore";
 import {db} from "../../firebase/firebase";
 // addDoc
-// setDoc
-// getDoc
-// getDocs
-// updateDoc
-// deleteDoc
+// setDoc  create
 
-// doc
-// collection
+// getDoc 
+// getDocs read
+
+// updateDoc update
+
+// deleteDoc delete
+
+// doc 한 단위
+// collection 테이블 단위위
 
 const DB_TABLE_NAME = "todo";
 
@@ -45,13 +48,13 @@ export default function Page(){
     }
 
     const handleUpdateData = async () => {
-        const res = await updateDoc(doc(db, DB_TABLE_NAME, "1"),{name : 'hi'});
+        const res = await updateDoc(doc(db, DB_TABLE_NAME, "1"),{name : 'hi'}); //db, table, 원본 키값 & 수정 키값값
         console.log(res);
 
     }
 
     const handleDeleteData = async () => {
-        const res = await deleteDoc(doc(db, DB_TABLE_NAME, "1"));
+        const res = await deleteDoc(doc(db, DB_TABLE_NAME, "1")); //db, table, 삭제하고자 하는 키값
         console.log(res);
 
     }
