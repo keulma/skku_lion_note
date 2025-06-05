@@ -1,6 +1,6 @@
 //onSnapshot(collection, (snapshot)=>{}) collection data를 snapshot 함수로 전부 전달 collection 내 데이터 변화 감지 후 snapshot에 다시 전달
 import {useState, useEffect} from "react";
-import {db} from "../../firebase/firebase";
+import {db} from "../../firebase/firebaseConfig";
 import { 
     addDoc,
     collection,
@@ -32,7 +32,7 @@ export default function ChatApp(){
         return () => unsubscribe();
     },[]);
 
-    const submitMessage = async(e) => {
+    const Submitmessage = async(e) => {
         e.preventDefault();
         if(messageInput.trim()){
             await addDoc(messagesRef, {
@@ -43,7 +43,20 @@ export default function ChatApp(){
             setMessagesInput('');
 
         }
-    }
+    useEffect(()=>{
+        //addDoc(messagesRef, {name : 'hi'});
+        const q = query(messagesRef, orderBy('createdAt'));
+        const unsubscribe = onSnapshot(q, (snapshot)=>{
+            setMessages(snapshot.docs.map((doc) => {
+                return {
+                    id : doc.id,
+                    ...doc.data()
+                }
+            }))
+        });
+
+        return () => unsubscribe();
+    },[]);    }
 
 
     return (<div
@@ -92,7 +105,7 @@ export default function ChatApp(){
             }
         </div>
         <form
-            onSubmit = {submitMessage}
+            onSubmit = {Submitmessage}
             style = {{
                 display : 'flex'
             }}

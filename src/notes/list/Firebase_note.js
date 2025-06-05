@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc, updateDoc } from "firebase/firestore";
-import {db} from "../../firebase/firebase";
+import {db} from "../../firebase/firebaseConfig";
 // addDoc
 // setDoc  create
 

@@ -3,6 +3,8 @@ import Note2 from "./list/Note2";
 import Note3 from "./list/Note3";
 import Note4 from "./list/Firebase_note";
 import Note5 from "./list/Firebase_chating"
+import Note6 from "./list/Firebase_todoList"
+
 
 export const notelists = {
   1: {
@@ -35,4 +37,10 @@ export const notelists = {
     page: <Note5/>,
     date: "2025-05-22",
   },
+  6: {
+    title: "Firebase Todo List",
+    description: "Firebase All about",
+    page: <Note6/>,
+    date: "2025-06-05",
+  }
 };
